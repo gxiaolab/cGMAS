@@ -44,7 +44,7 @@ optional arguments:
 
 ## B. Calculating concordance score (Si)
 
-### Get candidate functional SNPs
+### 1. Get candidate functional SNPs
 
 Union of GMAS events from all samples in a study. It does NOT matter which individuals we identified the GMAS events from.
 ```
@@ -61,7 +61,7 @@ optional arguments:
   -o outf     Output file
 ```
 
-### Get genotypes of candidate functional SNPs
+### 2. Get genotypes of candidate functional SNPs
 
 Each individual should have his or her specific list of SNPs and the genotype.
 ```
@@ -78,7 +78,7 @@ optional arguments:
   -o outf     Output file
 ```
 
-### Calculate concordance scores
+### 3. Calculate concordance scores
 
 ```
 usage: splicing.concordance.py [-h] -i inf -d indiv -t tag -m maxD -o outf -a
@@ -101,7 +101,7 @@ optional arguments:
 
 ## C. Filtering for candidate functional SNPs for GMAS
 
-### Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
+### 1. Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
 
 ```
 usage: peak.si.rm.bg.py [-h] -i inf [-r ref] [-m min] -n N -o outf -b bin -p
@@ -120,7 +120,7 @@ optional arguments:
   -p het      Percentage of heterozygous individuals
 ```
 
-### Get candidate functional SNPs based on Si, majorR, ... thresholds
+### 2. Get candidate functional SNPs based on Si, majorR, ... thresholds
 
 Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
 - **v1**
@@ -195,7 +195,7 @@ optional arguments:
   -m major    min membership ratio of the major component
  ```
  
- ### Filter out non-functional SNPs
+ ### 3. Filter out non-functional SNPs
  
  - **v1**
  ```
@@ -238,7 +238,7 @@ optional arguments:
   -s suff     suffix
   -o outf     Output file
  ```
-### FDR corrections
+### 4. FDR corrections
 
 - v1 : fisherP.adjust.R (fisherP.adjust.sh)
 - v2 : p.adjust.R (p0.adjust.sh)
