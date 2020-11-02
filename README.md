@@ -8,7 +8,7 @@ cGMAS (Concordance-based GMAS) is a method for predicting functional SNPs for GM
 - Identify GMAS events (GMAS SNPs and GMAS exons)
 - Determine genotype of candidate functional SNPs
 
-[B. Calculating concordance score (Si)](#calc-Si-score)
+[B. Calculating concordance score (Si)](#calc-si-score)
 
 [C. Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
 - Identify Si score peak
