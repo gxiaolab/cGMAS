@@ -8,7 +8,6 @@ import os
 import time
 import gzip
 
-#sys.path.append('/home/estherhsiao/lib')
 #sys.path.append('/u/home/s/s8600192/lib')
 #import GenomeFetch as gf
 #gf = gf.GenomeFetch('hg19')
