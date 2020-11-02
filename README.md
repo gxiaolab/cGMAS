@@ -16,7 +16,7 @@ C. [Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
 - FDR corrections
 
 
-## Preprocessing
+## 1. Preprocessing
 
 We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
 
@@ -42,7 +42,7 @@ optional arguments:
 ```
 
 
-## Calculating concordance score (Si)
+## 2. Calculating concordance score (Si)
 
 ### Get candidate functional SNPs
 
@@ -99,7 +99,7 @@ optional arguments:
               gene
 ```
 
-## Filtering for candidate functional SNPs for GMAS
+## 3. Filtering for candidate functional SNPs for GMAS
 
 ### Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
 
@@ -197,3 +197,49 @@ optional arguments:
  
  ### Filter out non-functional SNPs
  
+ - **v1**
+ ```
+ usage: detect.non-causal.py [-h] -i inf [-r ref] -s suff -o outf
+
+Detect non-functional SNPs - v1
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input file prefix
+  -r ref      ref file with SNV tested
+  -s suff     suff
+  -o outf     Output file
+ ```
+ 
+ - **v2**
+ ```
+ usage: detect.non-causal.v2.py [-h] -i inf [-r ref] -s suff -o outf
+
+Detect non-functional SNPs - v2
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input file prefix
+  -r ref      ref file with SNV tested
+  -s suff     suffix
+  -o outf     Output file
+ ```
+ 
+ - **v2b**
+ ```
+ usage: detect.non-causal.v2b.py [-h] -i inf [-r ref] -s suff -o outf
+
+Detect non-functional SNPs - v2b
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input file prefix
+  -r ref      ref file with SNV tested
+  -s suff     suffix
+  -o outf     Output file
+ ```
+### FDR corrections
+
+- v1 : fisherP.adjust.R (fisherP.adjust.sh)
+- v2 : p.adjust.R (p0.adjust.sh)
+- v2b: p.adjust.R (p0.adjust.v2b.sh)
