@@ -123,7 +123,7 @@ optional arguments:
 ### Get candidate functional SNPs based on Si, majorR, ... thresholds
 
 Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
-- v1
+- **v1**
   - number of individuals (n): 40
   - P-value testing whether the GMM is significantly different from Si = 1 (p): 0.1
   - Min Si (s): 0.8
@@ -149,7 +149,7 @@ optional arguments:
   -m major    min membership ratio of the major component
 ```
 
-- v2
+- **v2**
   - number of individuals (n): 40
   - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.1,0.01 -> >= 0.1 for Si = 1 and <= 0.01 for Si = 0
  
@@ -170,7 +170,7 @@ optional arguments:
   -n minPt    min data points (indiv) per causal-exon-tag pair
  ```
  
-- v2b
+- **v2b**
   - number of individuals (n): 40
   - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.05,0.05 -> <= 0.05 for Si = 1 and <= 0.05 for Si = 0
   - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
