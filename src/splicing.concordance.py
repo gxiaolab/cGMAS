@@ -8,7 +8,6 @@ import os
 import time
 
 
-#sys.path.append('/home/estherhsiao/lib')
 sys.path.append('/u/home/s/s8600192/lib')
 import GenomeFetch as gf
 gf = gf.GenomeFetch('hg19')
@@ -27,8 +26,6 @@ import subprocessFxn
 #	- Tag SNP + candidate SNPs w/in 500bp near exon-intron boundaries
 #	- if "INF" for -s option, use anno => only search for snp pairs w/in the same gene
 #
-# * In /u/home/s/s8600192/gxxiao3/GTEx/genotype/54045/PhenoGenotypeFiles/RootStudyConsentSet_phs000424.GTEx.v6.p1.c1.GRU/GenotypeFiles/wes11.pass.snp.vcf.gz, for example,
-#	there are complicated GT such like chr1.16388709. In this case, filter out in splicing.concordance.py!
 #----------
 # NEW: use genotype source info from tag snv.
 #	=> if source is from GT, max d is as expected @ 0.5
@@ -62,7 +59,7 @@ except ValueError:
 
 def snpInGene(inf,anno):
 	res = {}
-	stdout, stderr = subprocessFxn.run_command(['/u/nobackup/gxxiao2/apps/bin/bedtools2/bin/intersectBed', '-wo', '-a', inf, '-b', anno])
+	stdout, stderr = subprocessFxn.run_command(['intersectBed', '-wo', '-a', inf, '-b', anno])
 	if stderr: print 1,inf; sys.exit()
 	for l in stdout.strip().split('\n'):
 		l = l.split('\t')
