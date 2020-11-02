@@ -18,6 +18,7 @@ C. [Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
 
 ## Preprocessing
 
+- We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
 
 ## Calculating concordance score (Si)
 
