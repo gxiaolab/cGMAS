@@ -120,11 +120,80 @@ optional arguments:
   -p het      Percentage of heterozygous individuals
 ```
 
-### Get candidate causal SNPs based on Si, majorR, ... thresholds
+### Get candidate functional SNPs based on Si, majorR, ... thresholds
 
 Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
 - v1
-- - number of individuals (n): 40
+ - number of individuals (n): 40
+ -  P-value testing whether the GMM is significantly different from Si = 1 (p): 0.1
+ - Min Si (s): 0.8
+ - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
+ - Take out cases with all individuals who are homozygous (-M yes)
+ 
+```
+usage: get.causal.v1.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue -s
+                        si -p pval -n minPt -m major
+
+Get functional SNPs - v1
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i annoI    intron anno bed
+  -e annoE    exon anno bed
+  -r causalf  ref causal si file dir
+  -o outf     Output file
+  -t tissue   tissue of interest
+  -s si       min Si
+  -p pval     min pval; pval is testing whether si is diff from 1
+  -n minPt    min data points (indiv) per causal-exon-tag pair
+  -m major    min membership ratio of the major component
 ```
 
-```
+- v2
+ - number of individuals (n): 40
+ - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.1,0.01 -> >= 0.1 for Si = 1 and <= 0.01 for Si = 0
+ 
+ ```
+ usage: get.causal.v2.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue -p
+                        pval -n minPt
+
+Get functional SNPs - v2
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i annoI    intron anno bed
+  -e annoE    exon anno bed
+  -r causalf  ref causal si file dir
+  -o outf     Output file
+  -t tissue   tissue of interest
+  -p pval     min pval; pval is testing whether si is diff from 1
+  -n minPt    min data points (indiv) per causal-exon-tag pair
+ ```
+ 
+- v2b
+ - number of individuals (n): 40
+ - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.05,0.05 -> <= 0.05 for Si = 1 and <= 0.05 for Si = 0
+ - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
+ - Min % het individuals (s; gtr): 0.95
+ 
+ ```
+ usage: get.causal.v2b.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue
+                         -s gtr -p pval -n minPt -m major
+
+Get functional SNPs - v2b
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i annoI    intron anno bed
+  -e annoE    exon anno bed
+  -r causalf  ref causal si file dir
+  -o outf     Output file
+  -t tissue   tissue of interest
+  -s gtr      min GT ratio: RV/totalIndiv
+  -p pval     min pval; pval is testing whether si is diff from 1
+  -n minPt    min data points (indiv) per causal-exon-tag pair
+  -m major    min membership ratio of the major component
+ ```
+ 
+ ###
+ 
