@@ -18,9 +18,85 @@ C. [Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
 
 ## Preprocessing
 
-- We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
+We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
+
+### Get geontypes per tissue
+
+Get the genotype of candidate SNPs. Possible sources: genotype information and RNA-seq data.
+```
+usage: gt.per.tissue.py [-h] -i infdir -a asasf -r refdir -t total -m mono -u
+                        upperAR -l lowerAR -o outf
+
+Get genotypes per tissue
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i infdir   Input SNV count files dir
+  -a asasf    Input asas file,asas events that are in at least X samples, sep by comma
+  -r refdir   ref GT files directory
+  -t total    total coverage to tell homozygous dbSNPs
+  -m mono     mono coverage to tell homozygous dbSNPs
+  -u upperAR  upper-bound allelic ratio for heterozygous dbSNPs (<=)
+  -l lowerAR  lower-bound allelic ratio for heterozygous dbSNPs (>=)
+  -o outf     Output file
+```
+
 
 ## Calculating concordance score (Si)
 
+### Get candidate functional SNPs
+
+Union of GMAS events from all samples in a study. It does NOT matter which individuals we identified the GMAS events from.
+```
+usage: candid.bed.py [-h] -i ind -d indir -s suff -m min -o outf
+
+Get candidate functional SNPs
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i ind      Individual of interest
+  -d indir    Input file directory
+  -s suff     file suffix
+  -m min      min number of tissues to decide heterozygous
+  -o outf     Output file
+```
+
+### Get genotypes of candidate functional SNPs
+
+Each individual should have his or her specific list of SNPs and the genotype.
+```
+usage: tag.bed.py [-h] -i inf -a asasf -r ref -c cov -o outf
+
+Get candidate functional SNP genotypes
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input candidate SNP bed file
+  -a asasf    Input file with GMAS events that are in at least X samples
+  -r ref      alleles count ref file
+  -c cov      tag snv coverage
+  -o outf     Output file
+```
+
+### Calculate concordance scores
+
+```
+usage: splicing.concordance.py [-h] -i inf -d indiv -t tag -m maxD -o outf -a
+                               anno -s search
+
+Calculate concordance scores
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input candidate functional SNP bed file
+  -d indiv    Input individual ID
+  -t tag      tag snp bed file
+  -m maxD     max d for RNA-seq defined tag snvs
+  -o outf     Output file
+  -a anno     gene annotation bed file
+  -s search   max dist in nt from candidate functional snp to the AS exon to be
+              tested; input "INF" to test all possible snp pairs within the same
+              gene
+```
 
 ## Filtering for candidate functional SNPs for GMAS
