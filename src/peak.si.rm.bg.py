@@ -12,7 +12,6 @@ from collections import defaultdict
 import scipy as sp
 import math
 
-#sys.path.append('/home/estherhsiao/lib')
 sys.path.append('/u/home/s/s8600192/lib')
 import smartFunctions
 
