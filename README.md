@@ -239,5 +239,5 @@ optional arguments:
 - v2b: p.adjust.R (p0.adjust.v2b.sh)
 
 ## Credits
-- [Grace Xiao lab](https://www.xiao-lab.org/)
 - Esther Hsiao
+- [Grace Xiao lab](https://www.xiao-lab.org/)
