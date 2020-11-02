@@ -100,3 +100,22 @@ optional arguments:
 ```
 
 ## Filtering for candidate functional SNPs for GMAS
+
+### Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
+
+```
+usage: peak.si.rm.bg.py [-h] -i inf [-r ref] [-m min] -n N -o outf -b bin -p
+                        het
+
+Remove cases with shallow Si score peak magnitude
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i inf      Input file prefix
+  -r ref      SNVs to be filtered out
+  -m min      min data points (individuals) in the Si distri
+  -n N        Number of GMM components fitted
+  -o outf     Output file
+  -b bin      bin for randomization
+  -p het      Percentage of heterozygous individuals
+```
