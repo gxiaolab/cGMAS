@@ -4,19 +4,19 @@ cGMAS (Concordance-based GMAS) is a method for predicting functional SNPs for GM
 
 ## Table of contents
 
-A. [Preprocessing](#preprocessing)
+[A. Preprocessing](#preprocessing)
 - Identify GMAS events (GMAS SNPs and GMAS exons)
 - Determine genotype of candidate functional SNPs
 
-B. [Calculating concordance score (Si)](#calc-Si-score)
+[B. Calculating concordance score (Si)](#calc-Si-score)
 
-C. [Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
+[C. Filtering for candidate functional SNPs for GMAS](#filtering-candidate-snps)
 - Identify Si score peak
 - Filter by mean Si scores and Si peak magnitude
 - FDR corrections
 
 
-## 1. Preprocessing
+## A. Preprocessing
 
 We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
 
@@ -42,7 +42,7 @@ optional arguments:
 ```
 
 
-## 2. Calculating concordance score (Si)
+## B. Calculating concordance score (Si)
 
 ### Get candidate functional SNPs
 
@@ -99,7 +99,7 @@ optional arguments:
               gene
 ```
 
-## 3. Filtering for candidate functional SNPs for GMAS
+## C. Filtering for candidate functional SNPs for GMAS
 
 ### Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
 
