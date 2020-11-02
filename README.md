@@ -15,3 +15,11 @@ C. [Filtering for candidate functional SNPs for GMAS] (#filtering-candidate-snps
 - Filter by mean Si scores and Si peak magnitude
 - FDR corrections
 
+
+## Preprocessing
+
+
+## Calculating concordance score (Si)
+
+
+## Filtering for candidate functional SNPs for GMAS
