@@ -3,7 +3,6 @@
 cGMAS (Concordance-based GMAS) is a method for predicting functional SNPs for GMAS (genetically-modulated alternative splicing) events. GMAS events have associated SNPs that can serve as tag SNPs. If a SNP is functional for GMAS, we expect to see a concordant SNP genotype and alternative splicing pattern accross a large number of individuals. We can quanitify the concordance between genotype and splicing pattern using a concordance score (Si). This method cannot distinguish true functional and neutal SNPs if they are in perfect LD. Also, the method requires a large number of individuals.
 
 ## Table of contents
-
 [A. Preprocessing](#preprocessing)
 - Identify GMAS events (GMAS SNPs and GMAS exons)
 - Determine genotype of candidate functional SNPs
@@ -20,7 +19,6 @@ cGMAS (Concordance-based GMAS) is a method for predicting functional SNPs for GM
 We can use the [ASARP pipeline](https://legacy.ibp.ucla.edu/research/xiao/Software_files/ASARP/doc/) to get high-quality tag SNPs and GMAS events as input for this pipeline.
 
 ### Get geontypes per tissue
-
 Get the genotype of candidate SNPs. Possible sources: genotype information and RNA-seq data.
 ```
 usage: gt.per.tissue.py [-h] -i infdir -a asasf -r refdir -t total -m mono -u
@@ -60,7 +58,6 @@ optional arguments:
  ```
 
 ### 2. Get genotypes of candidate functional SNPs
-
 Each individual should have his or her specific list of SNPs and the genotype.
 ```
 usage: tag.bed.py [-h] -i inf -a asasf -r ref -c cov -o outf
@@ -77,7 +74,6 @@ optional arguments:
 ```
 
 ### 3. Calculate concordance scores
-
 ```
 usage: splicing.concordance.py [-h] -i inf -d indiv -t tag -m maxD -o outf -a
                                anno -s search
@@ -99,7 +95,6 @@ optional arguments:
 
 ## C. Filtering for candidate functional SNPs for GMAS
 ### 1. Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
-
 ```
 usage: peak.si.rm.bg.py [-h] -i inf [-r ref] [-m min] -n N -o outf -b bin -p
                         het
@@ -118,7 +113,6 @@ optional arguments:
 ```
 
 ### 2. Get candidate functional SNPs based on Si, majorR, ... thresholds
-
 Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
 - **v1**
   - number of individuals (n): 40
@@ -193,7 +187,6 @@ optional arguments:
  ```
  
 ### 3. Filter out non-functional SNPs
- 
 - **v1**
  ```
  usage: detect.non-causal.py [-h] -i inf [-r ref] -s suff -o outf
@@ -236,8 +229,7 @@ optional arguments:
   -o outf     Output file
  ```
  
- ### 4. FDR corrections
-
+### 4. FDR corrections
 - v1 : fisherP.adjust.R (fisherP.adjust.sh)
 - v2 : p.adjust.R (p0.adjust.sh)
 - v2b: p.adjust.R (p0.adjust.v2b.sh)
