@@ -44,10 +44,10 @@ optional arguments:
 
 ## B. Calculating concordance score (Si)
 
-### 1. Get candidate functional SNPs
+  ### 1. Get candidate functional SNPs
 
-Union of GMAS events from all samples in a study. It does NOT matter which individuals we identified the GMAS events from.
-```
+  Union of GMAS events from all samples in a study. It does NOT matter which individuals we identified the GMAS events from.
+ ```
 usage: candid.bed.py [-h] -i ind -d indir -s suff -m min -o outf
 
 Get candidate functional SNPs
@@ -59,11 +59,11 @@ optional arguments:
   -s suff     file suffix
   -m min      min number of tissues to decide heterozygous
   -o outf     Output file
-```
+ ```
 
-### 2. Get genotypes of candidate functional SNPs
+  ### 2. Get genotypes of candidate functional SNPs
 
-Each individual should have his or her specific list of SNPs and the genotype.
+  Each individual should have his or her specific list of SNPs and the genotype.
 ```
 usage: tag.bed.py [-h] -i inf -a asasf -r ref -c cov -o outf
 
@@ -78,7 +78,7 @@ optional arguments:
   -o outf     Output file
 ```
 
-### 3. Calculate concordance scores
+  ### 3. Calculate concordance scores
 
 ```
 usage: splicing.concordance.py [-h] -i inf -d indiv -t tag -m maxD -o outf -a
@@ -101,7 +101,7 @@ optional arguments:
 
 ## C. Filtering for candidate functional SNPs for GMAS
 
-### 1. Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
+  ### 1. Model Si scores of an event using GMM to get the Si score peak locations and to remove cases with shallow Si score peak magnitude.
 
 ```
 usage: peak.si.rm.bg.py [-h] -i inf [-r ref] [-m min] -n N -o outf -b bin -p
@@ -120,15 +120,15 @@ optional arguments:
   -p het      Percentage of heterozygous individuals
 ```
 
-### 2. Get candidate functional SNPs based on Si, majorR, ... thresholds
+  ### 2. Get candidate functional SNPs based on Si, majorR, ... thresholds
 
-Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
-- **v1**
-  - number of individuals (n): 40
-  - P-value testing whether the GMM is significantly different from Si = 1 (p): 0.1
-  - Min Si (s): 0.8
-  - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
-  - Take out cases with all individuals who are homozygous (-M yes)
+  Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
+  - **v1**
+   - number of individuals (n): 40
+   - P-value testing whether the GMM is significantly different from Si = 1 (p): 0.1
+   - Min Si (s): 0.8
+   - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
+   - Take out cases with all individuals who are homozygous (-M yes)
  
 ```
 usage: get.causal.v1.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue -s
@@ -149,9 +149,9 @@ optional arguments:
   -m major    min membership ratio of the major component
 ```
 
-- **v2**
-  - number of individuals (n): 40
-  - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.1,0.01 -> >= 0.1 for Si = 1 and <= 0.01 for Si = 0
+  - **v2**
+    - number of individuals (n): 40
+    - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.1,0.01 -> >= 0.1 for Si = 1 and <= 0.01 for Si = 0
  
  ```
  usage: get.causal.v2.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue -p
@@ -170,11 +170,11 @@ optional arguments:
   -n minPt    min data points (indiv) per causal-exon-tag pair
  ```
  
-- **v2b**
-  - number of individuals (n): 40
-  - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.05,0.05 -> <= 0.05 for Si = 1 and <= 0.05 for Si = 0
-  - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
-  - Min % het individuals (s; gtr): 0.95
+  - **v2b**
+   - number of individuals (n): 40
+   - P-value testing whether the GMM is significantly different from Si = 1; Si = 0 (p): 0.05,0.05 -> <= 0.05 for Si = 1 and <= 0.05 for Si = 0
+   - Min % individuals in major GMM (m): 0.9 -> applies to only tag SNVs that have high enough (n)
+   - Min % het individuals (s; gtr): 0.95
  
  ```
  usage: get.causal.v2b.py [-h] -i annoI -e annoE -r causalf -o outf -t tissue
@@ -197,7 +197,7 @@ optional arguments:
  
  ### 3. Filter out non-functional SNPs
  
- - **v1**
+  - **v1**
  ```
  usage: detect.non-causal.py [-h] -i inf [-r ref] -s suff -o outf
 
@@ -211,7 +211,7 @@ optional arguments:
   -o outf     Output file
  ```
  
- - **v2**
+  - **v2**
  ```
  usage: detect.non-causal.v2.py [-h] -i inf [-r ref] -s suff -o outf
 
@@ -225,7 +225,7 @@ optional arguments:
   -o outf     Output file
  ```
  
- - **v2b**
+  - **v2b**
  ```
  usage: detect.non-causal.v2b.py [-h] -i inf [-r ref] -s suff -o outf
 
@@ -240,6 +240,6 @@ optional arguments:
  ```
 ### 4. FDR corrections
 
-- v1 : fisherP.adjust.R (fisherP.adjust.sh)
-- v2 : p.adjust.R (p0.adjust.sh)
-- v2b: p.adjust.R (p0.adjust.v2b.sh)
+  - v1 : fisherP.adjust.R (fisherP.adjust.sh)
+  - v2 : p.adjust.R (p0.adjust.sh)
+  - v2b: p.adjust.R (p0.adjust.v2b.sh)
