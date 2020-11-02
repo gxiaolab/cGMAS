@@ -119,3 +119,12 @@ optional arguments:
   -b bin      bin for randomization
   -p het      Percentage of heterozygous individuals
 ```
+
+### Get candidate causal SNPs based on Si, majorR, ... thresholds
+
+Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
+- v1
+- - number of individuals (n): 40
+```
+
+```
