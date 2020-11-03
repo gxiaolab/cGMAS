@@ -8,7 +8,7 @@ import os
 import time
 from collections import defaultdict
 
-sys.path.append('/u/home/s/s8600192/lib')
+sys.path.append('./lib')
 
 ###########
 # If 1 candid causal snv has multiple tags, need to make sure all the candid-tag pairs are predicted to be causal!!
