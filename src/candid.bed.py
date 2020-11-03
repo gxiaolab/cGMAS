@@ -8,10 +8,6 @@ import os
 import time
 from collections import defaultdict
 
-sys.path.append('./lib')
-import GenomeFetch as gf
-gf = gf.GenomeFetch('hg19')
-
 ###########
 # combine inferred gt of snv from multiple tissues per individual
 #	- GT: trust as is
