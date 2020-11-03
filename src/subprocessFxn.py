@@ -1,5 +1,5 @@
 # 2/7/2017
-# from Ashley
+# from Ashley Cass
 
 # Run subprocess with input file
 # cmd = ['sort', '-k1,1', '-k2,2n', infile]
@@ -26,29 +26,3 @@ def run_command(cmd, stdin=0):
 		#sys.exit(1)
 		stderr = 1
 	return stdout, stderr
-
-#def inf2bed():
-#	#less all-er-0-dpsi-0.1-edits.txt |grep chr|grep "xon\|UTR"|cut -f1,8,9|awk -F'[\t.]' '{print $1,$4-1,$5,"exon","0",$3}' OFS='\t'|sort -u -k1,1 -k2,2n
-#	stdout, stderr = subprocessFxn.run_command(['less', opts.i])
-#	if stderr: print stderr; sys.exit()
-#
-#	stdout, stderr = subprocessFxn.run_command(['grep','chr'], stdout)
-#	if stderr: print stderr; sys.exit()
-#
-#	# stdout, stderr = subprocessFxn.run_command(['grep','xon\|UTR'], stdout)
-#	# if stderr: print stderr; sys.exit()
-#
-#	stdout, stderr = subprocessFxn.run_command(['cut','-f1,8,9'], stdout)
-#	if stderr: print stderr; sys.exit()
-#
-#	stdout, stderr = subprocessFxn.run_command(['awk','-F[\t.]','{print $1,$4-1,$5,"exon","0",$3}','OFS=\t'], stdout)
-#	if stderr: print stderr; sys.exit()
-#
-#	stdout, stderr = subprocessFxn.run_command(['sort','-u'], stdout)
-#	if stderr: print stderr; sys.exit()
-#
-#	stdout, stderr = subprocessFxn.run_command(['sort','-k1,1','-k2,2n'], stdout)
-#	if stderr: print stderr; sys.exit()
-#
-#	return stdout
-
