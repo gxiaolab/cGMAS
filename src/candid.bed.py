@@ -8,9 +8,9 @@ import os
 import time
 from collections import defaultdict
 
-#sys.path.append('/u/home/s/s8600192/lib')
-#import GenomeFetch as gf
-#gf = gf.GenomeFetch('hg19')
+sys.path.append('./lib')
+import GenomeFetch as gf
+gf = gf.GenomeFetch('hg19')
 
 ###########
 # combine inferred gt of snv from multiple tissues per individual
@@ -74,7 +74,7 @@ def main(argv):
 				try: vv = res[(chrm,pos)]['1/1']
 				except KeyError: pass
 				if ht >= minT: #not sure whether this is needed =>  or (rr >= minT and vv >= minT):
-				#	print 'ht',(chrm,pos),info[(chrm,pos)],rr,ht,vv
+					#print 'ht',(chrm,pos),info[(chrm,pos)],rr,ht,vv
 					out.write('{}\t{}\t{}\t0/1|{}\n'.format(chrm,int(pos)-1,pos,info[(chrm,pos)]))
 				elif rr > vv and rr >= minT:
 					out.write('{}\t{}\t{}\t0/0|{}\n'.format(chrm,int(pos)-1,pos,info[(chrm,pos)]))
