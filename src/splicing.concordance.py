@@ -6,11 +6,6 @@ import glob
 from time import strftime
 import os
 import time
-
-
-sys.path.append('/u/home/s/s8600192/lib')
-import GenomeFetch as gf
-gf = gf.GenomeFetch('hg19')
 import subprocessFxn
 
 ###########
