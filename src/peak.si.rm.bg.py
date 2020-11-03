@@ -11,8 +11,6 @@ from sklearn.mixture import GMM
 from collections import defaultdict
 import scipy as sp
 import math
-
-sys.path.append('/u/home/s/s8600192/lib')
 import smartFunctions
 
 ###########
