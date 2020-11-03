@@ -10,10 +10,6 @@ import numpy as np
 from scipy import stats
 from collections import defaultdict
 
-sys.path.append('./lib')
-import GenomeFetch as gf
-gf = gf.GenomeFetch('hg19')
-
 ###########
 # detect non-causal snvs leveraging the different genotypes
 # ONLY WORKs AFTER get.causal.py because we binarize the Si in this script - either Si->1 or Si->0
