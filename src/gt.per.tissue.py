@@ -8,10 +8,6 @@ import os
 import time
 import gzip
 
-#sys.path.append('/u/home/s/s8600192/lib')
-#import GenomeFetch as gf
-#gf = gf.GenomeFetch('hg19')
-
 ###########
 # Use GT info to validate method to call homo snp from RNA-Seq
 #	- min coverage: 10 or 20
