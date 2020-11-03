@@ -8,8 +8,6 @@ import os
 import time
 from collections import defaultdict
 
-sys.path.append('./lib')
-
 ###########
 # If 1 candid causal snv has multiple tags, need to make sure all the candid-tag pairs are predicted to be causal!!
 #	=> real causal snv doesn't matter which tag it is. all tags show show the same results!
