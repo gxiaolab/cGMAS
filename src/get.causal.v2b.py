@@ -9,9 +9,6 @@ import time
 from collections import defaultdict
 import numpy as np
 
-#sys.path.append('/home/estherhsiao/lib')
-sys.path.append('/u/home/s/s8600192/lib')
-
 ###########
 # If 1 candid causal snv has multiple tags, need to make sure all the candid-tag pairs are predicted to be causal!!
 #	=> real causal snv doesn't matter which tag it is. all tags show show the same results!
