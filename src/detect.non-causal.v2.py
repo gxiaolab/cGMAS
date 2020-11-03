@@ -10,10 +10,9 @@ import numpy as np
 from scipy import stats
 from collections import defaultdict
 
-#sys.path.append('/home/estherhsiao/lib')
-sys.path.append('/u/home/s/s8600192/lib')
-#import GenomeFetch as gf
-#gf = gf.GenomeFetch('hg19')
+sys.path.append('./lib')
+import GenomeFetch as gf
+gf = gf.GenomeFetch('hg19')
 
 ###########
 # detect non-causal snvs leveraging the different genotypes
