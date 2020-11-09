@@ -117,7 +117,6 @@ optional arguments:
 ```
 
 ### 2. Get candidate functional SNPs based on Si, majorR, ... thresholds
-Details on thresholds: For a given candidate SNV and target exon pair, all of its tag SNVs must pass all the filters except for the (n) filter below:
 - **v1**
   - number of individuals (n): 40
   - P-value testing whether the GMM is significantly different from Si = 1 (p): 0.1
@@ -135,12 +134,12 @@ optional arguments:
   -h, --help  show this help message and exit
   -i annoI    intron anno bed
   -e annoE    exon anno bed
-  -r causalf  ref causal si file dir
+  -r functionalf  ref functional si file dir
   -o outf     Output file
   -t tissue   tissue of interest
   -s si       min Si
   -p pval     min pval; pval is testing whether si is diff from 1
-  -n minPt    min data points (indiv) per causal-exon-tag pair
+  -n minPt    min data points (indiv) per functional-exon-tag pair
   -m major    min membership ratio of the major component
 ```
 
@@ -158,11 +157,11 @@ optional arguments:
   -h, --help  show this help message and exit
   -i annoI    intron anno bed
   -e annoE    exon anno bed
-  -r causalf  ref causal si file dir
+  -r functionalf  ref functional si file dir
   -o outf     Output file
   -t tissue   tissue of interest
   -p pval     min pval; pval is testing whether si is diff from 1
-  -n minPt    min data points (indiv) per causal-exon-tag pair
+  -n minPt    min data points (indiv) per functional-exon-tag pair
  ```
  
 - **v2b**
@@ -181,12 +180,12 @@ optional arguments:
   -h, --help  show this help message and exit
   -i annoI    intron anno bed
   -e annoE    exon anno bed
-  -r causalf  ref causal si file dir
+  -r functionalf  ref functional si file dir
   -o outf     Output file
   -t tissue   tissue of interest
   -s gtr      min GT ratio: RV/totalIndiv
   -p pval     min pval; pval is testing whether si is diff from 1
-  -n minPt    min data points (indiv) per causal-exon-tag pair
+  -n minPt    min data points (indiv) per functional-exon-tag pair
   -m major    min membership ratio of the major component
  ```
  
